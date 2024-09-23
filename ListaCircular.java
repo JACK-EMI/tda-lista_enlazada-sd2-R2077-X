@@ -10,13 +10,13 @@ public class ListaCircular implements ILista {
     }
 
     @Override
-    public void insertarElemento(Object elementoaInsertar) {
+    public void insertarElemento(int elementoaInsertar) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'insertarElemento'");
     }
 
     @Override
-    public void eliminarElemento(Object elementoaEliminar) {
+    public void eliminarElemento(int elementoaEliminar) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'eliminarElemento'");
     }
@@ -28,13 +28,13 @@ public class ListaCircular implements ILista {
     }
 
     @Override
-    public Nodo buscarElemento(Object elementoaBuscar) {
+    public Nodo buscarElemento(int elementoaBuscar) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarElemento'");
     }
 
     @Override
-    public boolean seEncuentraElemento(Object elementoaEncontrar) {
+    public boolean seEncuentraElemento(int elementoaEncontrar) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'seEncuentraElemento'");
     }
