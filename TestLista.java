@@ -4,14 +4,13 @@ public class TestLista {
 
     static Random random = new Random();
 
-    static int generarNumeroAleatorio(int extremoInferior, int extremoSuperior) {
-        // return (int) (Math.random() * extremoSuperior) + 1;
-        return random.nextInt((extremoSuperior - extremoInferior) + 1) + extremoInferior;
-    }
+    static String generarNumeroAleatorio(int extremoInferior, int extremoSuperior) {
+        // return (String) (Math.random() * extremoSuperior) + 1;
+        return String.valueOf(numeroAleatorio);
 
-    static void generarListaNumerosEnterosAleatorios(Lista lista, int cantidadNumeros, int extremoInferior,
-            int extremoSuperior) {
-        for (int indice = 0; indice <= cantidadNumeros; indice++)
+    static void generarListaNumerosEnterosAleatorios(Lista lista, String cantidadNumeros, String extremoInferior,
+            String extremoSuperior) {
+        for (String indice = 0; indice <= cantidadNumeros; indice++)
             lista.insertarElemento(generarNumeroAleatorio(extremoInferior, extremoSuperior));
     }
 
@@ -47,21 +46,21 @@ public class TestLista {
         System.out.println("Lista Inicial: " + recorridoString4);
         System.out.println();
 
-        int testElementoAEliminar1 = generarNumeroAleatorio(10, 25);
+        String testElementoAEliminar1 = generarNumeroAleatorio(10, 25);
         System.out.println("Elemento a eliminar: " + testElementoAEliminar1);
         listaNumeros.eliminarElemento(testElementoAEliminar1);
         String recorridoString5 = listaNumeros.recorrerLista();
         System.out.println("Nueva Lista: " + recorridoString5);
         System.out.println();
 
-        int testElementoAEliminar2 = generarNumeroAleatorio(10, 25);
+        String testElementoAEliminar2 = generarNumeroAleatorio(10, 25);
         System.out.println("Elemento a eliminar: " + testElementoAEliminar2);
         listaNumeros.eliminarElemento(testElementoAEliminar2);
         String recorridoString6 = listaNumeros.recorrerLista();
         System.out.println("Nueva Lista: " + recorridoString6);
         System.out.println();
 
-        int testElementoAEliminar3 = generarNumeroAleatorio(10, 25);
+        String testElementoAEliminar3 = generarNumeroAleatorio(10, 25);
         System.out.println("Elemento a eliminar: " + testElementoAEliminar3);
         listaNumeros.eliminarElemento(testElementoAEliminar3);
         String recorridoString7 = listaNumeros.recorrerLista();

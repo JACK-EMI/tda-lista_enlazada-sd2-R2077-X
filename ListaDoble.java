@@ -18,7 +18,7 @@ public class ListaDoble implements ILista {
     }
 
     @Override
-    public void insertarElemento(Object elementoaInsertar) {
+    public void insertarElemento(String elementoaInsertar) {
         Nodo nuevoNodo = new Nodo(); // se crea un nodo vacio
         nuevoNodo.setDato(elementoaInsertar); // se agrega el dato al nuevo nodo
         nuevoNodo.setEnlaceSiguiente(cabeza); // el enlace del nuevo nodo es la cabeza
@@ -29,7 +29,7 @@ public class ListaDoble implements ILista {
     }
 
     @Override
-    public void eliminarElemento(Object elementoaEliminar) {
+    public void eliminarElemento(String elementoaEliminar) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'eliminarElemento'");
     }
@@ -41,13 +41,13 @@ public class ListaDoble implements ILista {
     }
 
     @Override
-    public Nodo buscarElemento(Object elementoaBuscar) {
+    public Nodo buscarElemento(String elementoaBuscar) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarElemento'");
     }
 
     @Override
-    public boolean seEncuentraElemento(Object elementoaEncontrar) {
+    public boolean seEncuentraElemento(String elementoaEncontrar) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'seEncuentraElemento'");
     }

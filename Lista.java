@@ -23,7 +23,7 @@ public class Lista implements ILista {
     }
 
     @Override
-    public Nodo buscarElemento(int elementoaBuscar) {
+    public Nodo buscarElemento(String elementoaBuscar) {
         if (estaVacia()) {
             System.out.println("No se puede buscar un elemento en la lista, ya que esta vacia.");
             return null;
@@ -39,19 +39,19 @@ public class Lista implements ILista {
     }
 
     @Override
-    public void eliminarElemento(int elementoaEliminar) {
+    public void eliminarElemento(String elementoaEliminar) {
         if (estaVacia()) {
             System.out.println(":( No se puede eliminar: " + elementoaEliminar + ", la lista esta vacia.");
             return;
         }
-        if (cabeza.getDato() == elementoaEliminar) {
+        if (cabeza.getDato().equals(elementoaEliminar)) {
             cabeza = cabeza.getEnlace();
             System.out.println(":) Elemento: " + elementoaEliminar + ", eliminado de la lista");
             return;
         }
         Nodo auxNodo = cabeza;
         while (auxNodo.getEnlace() != null) {
-            if (auxNodo.getEnlace().getDato() == elementoaEliminar) {
+            if (auxNodo.getEnlace().getDato().equals(elementoaEliminar)) {
                 auxNodo.setEnlace(auxNodo.getEnlace().getEnlace());
                 System.out.println(":) Elemento: " + elementoaEliminar + ", eliminado de la lista");
                 return;
@@ -76,7 +76,7 @@ public class Lista implements ILista {
     }
 
     @Override
-    public void insertarElemento(int elementoaInsertar) {
+    public void insertarElemento(String elementoaInsertar) {
         Nodo nuevoNodo = new Nodo(); // se crea un nodo vacio
         nuevoNodo.setDato(elementoaInsertar); // se agrega el dato al nuevo nodo
         nuevoNodo.setEnlace(cabeza); // el enlace del nuevo nodo es la cabeza
@@ -98,14 +98,14 @@ public class Lista implements ILista {
     }
 
     @Override
-    public boolean seEncuentraElemento(int elementoaEncontrar) {
+    public boolean seEncuentraElemento(String elementoaEncontrar) {
         if (estaVacia()) {
             System.out.println("No se puede determinar si se encuentra un elemento en la lista, ya que esta vacia.");
             return false;
         }
         Nodo auxNodo = cabeza;
         while (auxNodo != null) {
-            if (auxNodo.getDato() == elementoaEncontrar) {
+            if (auxNodo.getDato().equals(elementoaEncontrar)) {
                 return true;
             }
             auxNodo = auxNodo.getEnlace();
