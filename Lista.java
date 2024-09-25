@@ -1,36 +1,36 @@
-public class Lista implements ILista {
-    private Nodo cabeza;
+public class Lista<T> implements ILista<T> {
+    private Nodo<T> cabeza;
 
     public Lista() {
         cabeza = null;
     }
 
-    public Lista(Nodo cabeza) {
+    public Lista(Nodo<T> cabeza) {
         this.cabeza = cabeza;
     }
 
-    public Nodo getCabeza() {
+    public Nodo<T> getCabeza() {
         return cabeza;
     }
 
-    public void setCabeza(Nodo cabeza) {
+    public void setCabeza(Nodo<T> cabeza) {
         this.cabeza = cabeza;
     }
 
     @Override
     public void inicializacionoCreacion() {
-
+        // Implementación si es necesaria
     }
 
     @Override
-    public Nodo buscarElemento(int elementoaBuscar) {
+    public Nodo<T> buscarElemento(T elementoABuscar) {
         if (estaVacia()) {
-            System.out.println("No se puede buscar un elemento en la lista, ya que esta vacia.");
+            System.out.println("No se puede buscar un elemento en la lista, ya que está vacía.");
             return null;
         }
-        Nodo auxNodo = cabeza;
+        Nodo<T> auxNodo = cabeza;
         while (auxNodo != null) {
-            if (auxNodo.getDato() == elementoaBuscar) {
+            if (auxNodo.getDato().equals(elementoABuscar)) {
                 return auxNodo;
             }
             auxNodo = auxNodo.getEnlace();
@@ -39,35 +39,31 @@ public class Lista implements ILista {
     }
 
     @Override
-    public void eliminarElemento(int elementoaEliminar) {
+    public void eliminarElemento(T elementoAEliminar) {
         if (estaVacia()) {
-            System.out.println(":( No se puede eliminar: " + elementoaEliminar + ", la lista esta vacia.");
+            System.out.println(":( No se puede eliminar: " + elementoAEliminar + ", la lista está vacía.");
             return;
         }
-        if (cabeza.getDato() == elementoaEliminar) {
+        if (cabeza.getDato().equals(elementoAEliminar)) {
             cabeza = cabeza.getEnlace();
-            System.out.println(":) Elemento: " + elementoaEliminar + ", eliminado de la lista");
+            System.out.println(":) Elemento: " + elementoAEliminar + ", eliminado de la lista");
             return;
         }
-        Nodo auxNodo = cabeza;
+        Nodo<T> auxNodo = cabeza;
         while (auxNodo.getEnlace() != null) {
-            if (auxNodo.getEnlace().getDato() == elementoaEliminar) {
+            if (auxNodo.getEnlace().getDato().equals(elementoAEliminar)) {
                 auxNodo.setEnlace(auxNodo.getEnlace().getEnlace());
-                System.out.println(":) Elemento: " + elementoaEliminar + ", eliminado de la lista");
+                System.out.println(":) Elemento: " + elementoAEliminar + ", eliminado de la lista");
                 return;
             }
             auxNodo = auxNodo.getEnlace();
         }
-        System.out.println(":( El elemento: " + elementoaEliminar + ", no se encuentra en la lista");
+        System.out.println(":( El elemento: " + elementoAEliminar + ", no se encuentra en la lista");
     }
 
     @Override
     public boolean estaVacia() {
-        if (cabeza == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return cabeza == null;
     }
 
     @Override
@@ -76,51 +72,28 @@ public class Lista implements ILista {
     }
 
     @Override
-    public void insertarElemento(int elementoaInsertar) {
-        Nodo nuevoNodo = new Nodo(); // se crea un nodo vacio
-        nuevoNodo.setDato(elementoaInsertar); // se agrega el dato al nuevo nodo
+    public void insertarElemento(T elementoAInsertar) {
+        Nodo<T> nuevoNodo = new Nodo<>(); // se crea un nodo vacío
+        nuevoNodo.setDato(elementoAInsertar); // se agrega el dato al nuevo nodo
         nuevoNodo.setEnlace(cabeza); // el enlace del nuevo nodo es la cabeza
         cabeza = nuevoNodo; // la cabeza es el nuevo nodo
     }
 
     @Override
-    public String recorrerLista() {
-        String recorridoString = "";
-        if (estaVacia()) {
-            return "No se puede recorrer la lista, ya que esta vacia.";
-        }
-        Nodo auxNodo = cabeza;
-        while (auxNodo != null) {
-            recorridoString = recorridoString + auxNodo.getDato() + " ";
-            auxNodo = auxNodo.getEnlace();
-        }
-        return recorridoString;
-    }
-
-    @Override
-    public boolean seEncuentraElemento(int elementoaEncontrar) {
-        if (estaVacia()) {
-            System.out.println("No se puede determinar si se encuentra un elemento en la lista, ya que esta vacia.");
-            return false;
-        }
-        Nodo auxNodo = cabeza;
-        while (auxNodo != null) {
-            if (auxNodo.getDato() == elementoaEncontrar) {
-                return true;
-            }
-            auxNodo = auxNodo.getEnlace();
-        }
-        return false;
-    }
-
-    @Override
     public void pop() {
-        if (estaVacia()) {
-            System.out.println("No se puede realizar el pop, ya que se encuentra vacia");
-        } else {
-            Nodo aux = cabeza;
-            cabeza = aux.getEnlace();
-        }
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'pop'");
     }
 
-}
+    @Override
+    public boolean seEncuentraElemento(T elementoAEncontrar) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'seEncuentraElemento'");
+    }
+
+    @Override
+    public String recorrerLista() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'recorrerLista'");
+    }
+}   
