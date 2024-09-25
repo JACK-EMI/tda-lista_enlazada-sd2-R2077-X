@@ -1,15 +1,15 @@
 public interface ILista {
     void inicializacionoCreacion();
 
-    void insertarElemento(int elementoaInsertar);
+    void insertarElemento(Object elementoaInsertar);
 
-    void eliminarElemento(int elementoaEliminar);
+    void eliminarElemento(Object elementoaEliminar);
 
     void pop();
 
-    Nodo buscarElemento(int elementoaBuscar);
+    Nodo buscarElemento(Object elementoaBuscar);
 
-    boolean seEncuentraElemento(int elementoaEncontrar);
+    boolean seEncuentraElemento(Object elementoaEncontrar);
 
     String recorrerLista();
 
